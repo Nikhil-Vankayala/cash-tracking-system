@@ -40,11 +40,11 @@ function createSheetIfNotExists() {
 }
 
 function doPost(e) {
-  // Set CORS headers for all responses
   const headers = {
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': 'https://nikhil-vankayala.github.io',
     'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type'
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Credentials': 'true'
   };
 
   try {

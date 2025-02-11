@@ -1,5 +1,5 @@
 // Google Sheets Integration
-const SCRIPT_URL = 'https://script.google.com/a/macros/jumbotail.com/s/AKfycbxdP98_pj6YLVL8o6sc7VKAtg9W1f0C_Gl5_YbxMxav5X1xyZTc9vY8kxMmXAzAqL_MIQ/exec'; // You'll get this after new deployment
+const SCRIPT_URL = 'https://script.google.com/a/macros/jumbotail.com/s/AKfycbwg-Fji_dx7ARx8I57aKjXo7ipnvClzUyGTXUzlyfhybg7gRfQSMjxM04xWWY6ALQab/exec';  // Add new URL here
 
 // Function to save data to Google Sheets
 async function saveToGoogleSheets(formData) {
@@ -41,7 +41,7 @@ async function saveToGoogleSheets(formData) {
         const response = await fetch(SCRIPT_URL, {
             method: 'POST',
             mode: 'no-cors',
-            credentials: 'include',  // Important for company domain
+            credentials: 'include',  // Keep this for company domain
             redirect: 'follow',
             headers: {
                 'Content-Type': 'application/json',
