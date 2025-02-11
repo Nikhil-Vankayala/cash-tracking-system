@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://www.gstatic.com https://accounts.google.com https://script.google.com;">
+    <title>Cash Recording System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cash Recording System</h1>
+        
+        <!-- Upper Section -->
+        <div class="upper-section">
+            <div class="form-group">
+                <label for="hubId">HUB ID:</label>
+                <input type="number" id="hubId" readonly>
+            </div>
+            <div class="form-group">
+                <label for="tripId">Trip ID:</label>
+                <input type="number" id="tripId">
+            </div>
+            <div class="form-group">
+                <label for="dhName">DH Name:</label>
+                <input type="text" id="dhName" readonly>
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" readonly>
+            </div>
+        </div>
+
+        <!-- Denomination Section -->
+        <div class="denomination-container">
+            <!-- Cash Section -->
+            <div class="cash-section">
+                <h2>Cash Denomination</h2>
+                <table id="cashTable">
+                    <thead>
+                        <tr>
+                            <th>Denomination</th>
+                            <th>Count</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>500</td>
+                            <td><input type="number" class="count-input" data-denomination="500" data-type="cash"></td>
+                            <td class="amount">0</td>
+                        </tr>
+                        <tr>
+                            <td>200</td>
+                            <td><input type="number" class="count-input" data-denomination="200" data-type="cash"></td>
+                            <td class="amount">0</td>
+                        </tr>
+                        <tr>
+                            <td>100</td>
+                            <td><input type="number" class="count-input" data-denomination="100" data-type="cash"></td>
+                            <td class="amount">0</td>
+                        </tr>
+                        <tr>
+                            <td>50</td>
+                            <td><input type="number" class="count-input" data-denomination="50" data-type="cash"></td>
+                            <td class="amount">0</td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td><input type="number" class="count-input" data-denomination="20" data-type="cash"></td>
+                            <td class="amount">0</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td><input type="number" class="count-input" data-denomination="10" data-type="cash"></td>
+                            <td class="amount">0</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2"><strong>Total Cash</strong></td>
+                            <td id="totalCash">0</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <!-- Coins Section -->
+            <div class="coins-section">
+                <h2>Coins Denomination</h2>
+                <table id="coinsTable">
+                    <thead>
+                        <tr>
+                            <th>Denomination</th>
+                            <th>Count</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>20</td>
+                            <td><input type="number" class="count-input" data-denomination="20" data-type="coin"></td>
+                            <td class="amount">0</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td><input type="number" class="count-input" data-denomination="10" data-type="coin"></td>
+                            <td class="amount">0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><input type="number" class="count-input" data-denomination="5" data-type="coin"></td>
+                            <td class="amount">0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><input type="number" class="count-input" data-denomination="2" data-type="coin"></td>
+                            <td class="amount">0</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td><input type="number" class="count-input" data-denomination="1" data-type="coin"></td>
+                            <td class="amount">0</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2"><strong>Total Coins</strong></td>
+                            <td id="totalCoins">0</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+        <div class="total-money-collected">
+            <h3>Total Money Collected: <span id="totalMoneyCollected">0</span></h3>
+        </div>
+
+        <!-- Shortages Section -->
+        <div class="shortages-section">
+            <h2>Shortages</h2>
+            <table id="shortagesTable">
+                <thead>
+                    <tr>
+                        <th>Ticket ID</th>
+                        <th>Amount</th>
+                        <th>Remarks</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3"><strong>Total Shortages</strong></td>
+                        <td id="totalShortages">0</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button id="addShortage">Add Shortage</button>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="summary-section">
+            <h2>Summary</h2>
+            <div class="summary-details">
+                <p>Total Amount Collected: <span id="summaryTotalCollected">0</span></p>
+                <p>Total Shortages: <span id="summaryTotalShortages">0</span></p>
+                <p>Final Total of Trip: <span id="finalTotal">0</span></p>
+            </div>
+        </div>
+
+        <button id="submitButton" class="submit-button">Submit</button>
+        <!-- Authentication buttons (commented for now)
+        <button id="signInButton" onclick="handleAuthClick()">Sign In with Google</button>
+        <button id="signOutButton" onclick="handleSignoutClick()">Sign Out</button>
+        -->
+    </div>
+    <script src="script.js"></script>
+    <script src="google-sheets.js"></script>
+</body>
+</html> 
