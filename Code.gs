@@ -42,10 +42,10 @@ function createSheetIfNotExists() {
 function doPost(e) {
   // Set CORS headers for all responses
   const headers = {
-    'Access-Control-Allow-Origin': 'https://nikhil-vankayala.github.io',  // Your GitHub Pages domain
+    'Access-Control-Allow-Origin': 'https://nikhil-vankayala.github.io',
     'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Credentials': 'true'  // Important for company domain
+    'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With',
+    'Access-Control-Allow-Credentials': 'true'
   };
 
   // Handle preflight requests
@@ -93,9 +93,9 @@ function doGet(e) {
   }))
   .setMimeType(ContentService.MimeType.JSON)
   .setHeaders({
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': 'https://nikhil-vankayala.github.io',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Max-Age': '86400'
+    'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With',
+    'Access-Control-Allow-Credentials': 'true'
   });
 } 
