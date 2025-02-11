@@ -1,6 +1,5 @@
 // Google Sheets Integration
-const SCRIPT_URL = 'https://script.google.com/a/macros/jumbotail.com/s/AKfycbyUyLn33nvD3aQ34q4KhSTKK9iY5EJtA7rVF3O3woWRXfYF2ntYL_eLzNyU68uGaC4brg/exec';  // Add the new URL you get
-
+const SCRIPT_URL = 'https://script.google.com/a/macros/jumbotail.com/s/AKfycbyUyLn33nvD3aQ34q4KhSTKK9iY5EJtA7rVF3O3woWRXfYF2ntYL_eLzNyU68uGaC4brg/exec';
 // Function to save data to Google Sheets
 async function saveToGoogleSheets(formData) {
     try {
@@ -40,11 +39,12 @@ async function saveToGoogleSheets(formData) {
         // Send data to Google Apps Script
         const response = await fetch(SCRIPT_URL, {
             method: 'POST',
-            mode: 'cors',  // Changed from no-cors to cors
-            credentials: 'include',
+            mode: 'no-cors',
+            credentials: 'include',  // Important for company domain
+            redirect: 'follow',
             headers: {
                 'Content-Type': 'application/json',
-                'Origin': 'https://nikhil-vankayala.github.io'
+                'Origin': window.location.origin
             },
             body: JSON.stringify({
                 values: values

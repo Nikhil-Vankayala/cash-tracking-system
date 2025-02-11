@@ -41,18 +41,10 @@ function createSheetIfNotExists() {
 
 function doPost(e) {
   const headers = {
-    'Access-Control-Allow-Origin': 'https://nikhil-vankayala.github.io',
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-    'Access-Control-Allow-Credentials': 'true'
+    'Access-Control-Allow-Headers': 'Content-Type'
   };
-
-  // Handle preflight requests
-  if (e.method == 'OPTIONS') {
-    return ContentService.createTextOutput('')
-      .setMimeType(ContentService.MimeType.TEXT)
-      .setHeaders(headers);
-  }
 
   try {
     // Parse the incoming data
