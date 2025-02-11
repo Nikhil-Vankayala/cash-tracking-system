@@ -1,5 +1,5 @@
 // Google Sheets Integration
-const SCRIPT_URL = 'https://script.google.com/a/macros/jumbotail.com/s/AKfycbyUyLn33nvD3aQ34q4KhSTKK9iY5EJtA7rVF3O3woWRXfYF2ntYL_eLzNyU68uGaC4brg/exec';
+const SCRIPT_URL = 'https://script.google.com/a/macros/jumbotail.com/s/AKfycbwrlBWybfdMrZapE1R5TNlx6YG_ov8kRmT8RfIO9i8PrBoE2QyE1c4r0ZFLAXaKs8-AtQ/exec';
 // Function to save data to Google Sheets
 async function saveToGoogleSheets(formData) {
     try {
