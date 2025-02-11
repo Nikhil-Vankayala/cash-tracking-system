@@ -1,5 +1,5 @@
 // Google Sheets Integration
-const SCRIPT_URL = 'https://script.google.com/a/macros/jumbotail.com/s/AKfycbwhgd7gjTrsFFf2r_Y7klx_-dtgZMJ0LZB9Fva1KYHBnZLemdi2fsKdbtj6lZ9zsxQ2/exec'; // You'll get this after new deployment
+const SCRIPT_URL = 'https://script.google.com/a/macros/jumbotail.com/s/AKfycbxdP98_pj6YLVL8o6sc7VKAtg9W1f0C_Gl5_YbxMxav5X1xyZTc9vY8kxMmXAzAqL_MIQ/exec'; // You'll get this after new deployment
 
 // Function to save data to Google Sheets
 async function saveToGoogleSheets(formData) {
